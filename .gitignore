@@ -1,0 +1,18 @@
+# Environment variables and secrets
+.env
+
+# SQLite database
+knowledge.db
+knowledge.db-shm
+knowledge.db-wal
+
+# Uploaded files
+uploads/
+
+# Go build files
+*.exe
+*.test
+
+# Frontend dependencies and build
+frontend/node_modules/
+frontend/dist/
