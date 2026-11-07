@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 	"os/exec"
 	"time"
 
@@ -110,8 +111,11 @@ func searchChunksThroughMCP(query string, limit int) ([]RetrievedChunk, error) {
 		nil,
 	)
 
+	cmd := exec.Command("go", "run", ".", "mcp")
+	cmd.Stderr = os.Stderr
+
 	transport := &mcp.CommandTransport{
-		Command: exec.Command("go", "run", ".", "mcp"),
+		Command: cmd,
 	}
 
 	session, err := client.Connect(ctx, transport, nil)

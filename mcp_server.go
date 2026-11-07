@@ -107,6 +107,15 @@ func startMCPServer() {
 				limit,
 			)
 
+			for _, result := range results {
+				log.Printf(
+					"MCP SEARCH RESULT | Document ID: %s | Chunk ID: %d | Similarity: %.4f",
+					result.DocumentID,
+					result.ID,
+					result.Similarity,
+				)
+			}
+
 			if err != nil {
 				return nil, SearchKnowledgeBaseOutput{}, err
 			}

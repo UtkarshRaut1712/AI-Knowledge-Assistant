@@ -8,6 +8,7 @@ require (
 	github.com/ledongthuc/pdf v0.0.0-20261020125853-5e46805f718e // indirect
 	github.com/mattn/go-sqlite3 v1.14.52 // indirect
 	github.com/modelcontextprotocol/go-sdk v1.8.0 // indirect
+	github.com/otiai10/gosseract/v2 v2.4.1 // indirect
 	github.com/segmentio/asm v1.1.3 // indirect
 	github.com/segmentio/encoding v0.5.4 // indirect
 	github.com/yosida95/uritemplate/v3 v3.0.2 // indirect
