@@ -98,8 +98,7 @@ func runMCPClient() error {
 	return nil
 }
 
-func searchChunksThroughMCP(query string, limit int) ([]RetrievedChunk, error) {
-
+func searchChunksThroughMCP(query string, limit int, documentID string) ([]RetrievedChunk, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
 	defer cancel()
 
@@ -127,8 +126,9 @@ func searchChunksThroughMCP(query string, limit int) ([]RetrievedChunk, error) {
 	result, err := session.CallTool(ctx, &mcp.CallToolParams{
 		Name: "search_knowledge_base",
 		Arguments: map[string]any{
-			"query": query,
-			"limit": limit,
+			"query":       query,
+			"limit":       limit,
+			"document_id": documentID,
 		},
 	})
 

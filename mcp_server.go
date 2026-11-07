@@ -87,8 +87,9 @@ func startMCPServer() {
 			ctx context.Context,
 			req *mcp.CallToolRequest,
 			input struct {
-				Query string `json:"query"`
-				Limit int    `json:"limit,omitempty"`
+				Query      string `json:"query"`
+				Limit      int    `json:"limit,omitempty"`
+				DocumentID string `json:"document_id"`
 			},
 		) (*mcp.CallToolResult, SearchKnowledgeBaseOutput, error) {
 
@@ -105,6 +106,7 @@ func startMCPServer() {
 			results, err := searchRelevantChunks(
 				input.Query,
 				limit,
+				input.DocumentID,
 			)
 
 			for _, result := range results {
